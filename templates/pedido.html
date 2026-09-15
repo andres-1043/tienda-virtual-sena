@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Realizar pedido - Tienda Virtual SENA</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>📦 Realizar pedido</h1>
+        <p>Completa tus datos para continuar</p>
+    </header>
+
+
+    <div class="carrito-contenido">
+
+        <form method="POST">
+
+            <label>Nombre:</label>
+
+            <input
+                type="text"
+                name="nombre"
+                required
+            >
+
+            <br><br>
+
+
+            <label>Apellido:</label>
+
+            <input
+                type="text"
+                name="apellido"
+                required
+            >
+
+            <br><br>
+
+
+            <label>Curso:</label>
+
+            <input
+                type="text"
+                name="curso"
+                placeholder="Ejemplo: 10-A"
+                required
+            >
+
+            <br><br>
+
+
+            <label>Correo electrónico:</label>
+
+            <input
+                type="email"
+                name="correo"
+                required
+            >
+
+            <br><br>
+
+
+            <label>Teléfono:</label>
+
+            <input
+                type="text"
+                name="telefono"
+                required
+            >
+
+            <br><br>
+
+            <label>Método de pago:</label>
+
+            <select name="metodo_pago" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Efectivo en el colegio">
+                    💵 Efectivo en el colegio
+                </option>
+                <option value="Transferencia">
+                    📱 Transferencia
+                </option>
+            </select>
+
+            <br><br>
+
+
+    
+            <div class="centrado">
+
+                <button class="boton" type="submit">
+                    ✅ Confirmar pedido
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <div class="centrado">
+
+            <a class="boton"
+               href="{{ url_for('carrito') }}">
+
+                ← Volver al carrito
+
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
