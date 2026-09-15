@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pedidos - Tienda Virtual SENA</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>📋 Pedidos registrados</h1>
+        <p>Panel de administración de la Tienda Virtual SENA</p>
+    </header>
+
+    <div class="carrito-contenido">
+
+        {% if pedidos %}
+
+            {% for pedido in pedidos %}
+
+                <div class="pedido-admin">
+
+                    <h2>
+                        📦 Pedido #{{ pedido["id"] }}
+                    </h2>
+
+                    <p>
+                        <strong>Cliente:</strong>
+                        {{ pedido["nombre"] }}
+                        {{ pedido["apellido"] }}
+                    </p>
+
+                    <p>
+                        <strong>Curso:</strong>
+                        {{ pedido["curso"] }}
+                    </p>
+
+                    <p>
+                        <strong>Correo:</strong>
+                        {{ pedido["correo"] }}
+                    </p>
+
+                    <p>
+                        <strong>Teléfono:</strong>
+                        {{ pedido["telefono"] }}
+                    </p>
+
+                    <p>
+                        <strong>Fecha:</strong>
+                        {{ pedido["fecha"] }}
+                    </p>
+
+                    <p class="precio">
+                        Total:
+                        ${{ "{:,}".format(pedido["total"]).replace(",", ".") }}
+                    </p>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="centrado">
+                <h2>📭 No hay pedidos registrados</h2>
+                <p>Cuando un cliente realice un pedido aparecerá aquí.</p>
+            </div>
+
+        {% endif %}
+
+        <div class="centrado">
+
+            <a class="boton"
+               href="{{ url_for('inicio') }}">
+                🏠 Volver a la tienda
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

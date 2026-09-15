@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Carrito - Tienda Virtual SENA</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>🛒 Mi carrito</h1>
+        <p>Revisa los productos de tu compra</p>
+    </header>
+
+
+    <div class="carrito-contenido">
+
+        {% if productos %}
+
+            {% for producto in productos %}
+
+                <div class="producto-carrito">
+
+                    <div class="emoji">
+                        {{ producto.emoji }}
+                    </div>
+
+                    <div class="nombre">
+                        <strong>{{ producto.nombre }}</strong>
+                        <br>
+                        ${{ "{:,}".format(producto.precio).replace(",", ".") }}
+                    </div>
+
+
+                    <div class="cantidad">
+
+                        <strong>Cantidad:</strong>
+
+                        <div style="margin-top: 8px;">
+
+                            <a class="boton"
+                               href="{{ url_for('disminuir', id=producto.id) }}">
+                                −
+                            </a>
+
+                            <strong style="margin: 0 10px;">
+                                {{ producto.cantidad }}
+                            </strong>
+
+                            <a class="boton"
+                               href="{{ url_for('aumentar', id=producto.id) }}">
+                                +
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="precio">
+
+                        ${{ "{:,}".format(producto.subtotal).replace(",", ".") }}
+
+                        <br>
+
+                        <a class="boton vaciar"
+                           href="{{ url_for('eliminar', id=producto.id) }}">
+                            🗑️ Eliminar
+                        </a>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+
+            <div class="total">
+
+                Total:
+                ${{ "{:,}".format(total).replace(",", ".") }}
+
+            </div>
+
+
+            <div class="centrado">
+
+                <a class="boton vaciar"
+                   href="{{ url_for('vaciar') }}">
+                    🗑️ Vaciar carrito
+                </a>
+
+            </div>
+
+
+            <div class="centrado">
+
+    <a class="boton"
+       href="{{ url_for('pedido') }}">
+        📦 Realizar pedido
+    </a>
+
+</div>
+
+
+        {% else %}
+
+            <div class="centrado">
+
+                <h2>Tu carrito está vacío 🛒</h2>
+
+                <p>Agrega algunos productos para comenzar.</p>
+
+            </div>
+
+        {% endif %}
+
+
+        <div class="centrado">
+
+            <a class="boton" href="{{ url_for('inicio') }}">
+                ← Volver a la tienda
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

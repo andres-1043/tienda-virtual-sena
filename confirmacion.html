@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pedido confirmado - Tienda Virtual SENA</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>🎉 ¡Pedido realizado!</h1>
+        <p>Gracias por utilizar nuestra Tienda Virtual SENA</p>
+    </header>
+
+
+    <div class="carrito-contenido">
+
+        <div class="centrado">
+
+            <h2>¡Gracias, {{ nombre }}! 😊</h2>
+
+
+            <h3>
+                📋 Número de pedido: #{{ numero_pedido }}
+            </h3>
+            
+            <p>
+                Tu pedido ha sido registrado correctamente.
+            </p>
+
+            <h3>
+                💰 Total de la compra:
+                ${{ "{:,}".format(total).replace(",", ".") }}
+            </h3>
+
+            <br>
+
+            <p>
+                📦 Pronto podrás recibir información sobre tu pedido.
+            </p>
+
+
+            <a class="boton"
+               href="{{ url_for('inicio') }}">
+
+                🏠 Volver a la tienda
+
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
