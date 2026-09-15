@@ -1,0 +1,362 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    color: #333;
+}
+
+/* ENCABEZADO */
+
+header {
+    background: linear-gradient(135deg, #39a900, #2d8500);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* CONTENEDOR */
+
+.contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+/* BOTÓN DEL CARRITO */
+
+.carrito {
+    text-align: center;
+    margin: 25px;
+}
+
+/* PRODUCTOS */
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.producto {
+    background-color: white;
+    padding: 25px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.18);
+}
+
+.emoji {
+    font-size: 65px;
+    margin-bottom: 10px;
+}
+
+.producto h2 {
+    margin: 10px 0;
+}
+
+/* PRECIOS */
+
+.precio {
+    font-size: 20px;
+    font-weight: bold;
+    color: #39a900;
+}
+
+/* BOTONES */
+
+.boton {
+    display: inline-block;
+    background-color: #39a900;
+    color: white;
+    padding: 11px 18px;
+    text-decoration: none;
+    border-radius: 7px;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.boton:hover {
+    background-color: #2d8500;
+}
+
+/* CARRITO */
+
+.carrito-contenido {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.producto-carrito {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #ddd;
+    padding: 18px 0;
+}
+
+.nombre {
+    flex: 1;
+}
+
+.cantidad {
+    margin-right: 15px;
+}
+
+.total {
+    text-align: right;
+    font-size: 26px;
+    font-weight: bold;
+    color: #39a900;
+    margin-top: 25px;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.vaciar {
+    background-color: #d9534f;
+}
+
+.vaciar:hover {
+    background-color: #b52b27;
+}
+
+/* DISEÑO PARA CELULAR */
+
+@media (max-width: 800px) {
+
+    .productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .productos {
+        grid-template-columns: 1fr;
+    }
+
+    .producto-carrito {
+        flex-wrap: wrap;
+    }
+
+}
+
+/* =========================
+   FORMULARIO DE PEDIDO
+   ========================= */
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #39a900;
+    box-shadow: 0 0 5px rgba(57, 169, 0, 0.3);
+}
+
+form .boton {
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* =========================
+   PANEL DE PEDIDOS
+   ========================= */
+
+.pedido-admin {
+    background-color: #f8f8f8;
+    border-left: 5px solid #39a900;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.pedido-admin h2 {
+    margin-top: 0;
+    color: #39a900;
+}
+
+.pedido-admin p {
+    margin: 8px 0;
+}
+
+.pedido-admin .precio {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.imagen-producto {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: #39a900;
+}
+
+form br {
+    display: none;
+}
+
+form label:not(:first-child) {
+    margin-top: 18px;
+}
+
+/* IDENTIDAD VISUAL DE SENA ESCOLAR */
+
+body {
+    background-color: #f2f4f5;
+    color: #176b35;
+}
+
+header {
+    background-color: #39a900;
+    color: white;
+}
+
+h1, h2, h3 {
+    color: #176b35;
+}
+
+.boton {
+    background-color: #39a900;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.boton:hover {
+    background-color: #176b35;
+}
+
+.producto,
+.pedido-admin {
+    background-color: white;
+    border-radius: 12px;
+    border-top: 5px solid #39a900;
+}
+
+.precio {
+    color: #176b35;
+    font-weight: bold;
+}
+
+.logo-tienda {
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.destacado {
+    background-color: #f9c80e;
+    color: #176b35;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* LOGO DE LA TIENDA */
+.encabezado-logo {
+    text-align: center;
+    padding: 25px 15px;
+    background-color: white;
+    border-bottom: 5px solid #39A900;
+}
+
+.encabezado-logo img {
+    width: 180px;
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.encabezado-logo h1 {
+    margin: 5px 0;
+    color: #176B35;
+}
+
+.encabezado-logo p {
+    margin: 5px 0;
+    color: #176B35;
+    font-weight: bold;
+}
